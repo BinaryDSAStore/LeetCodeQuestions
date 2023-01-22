@@ -33,6 +33,7 @@ vector<vector<string>> partition(string s)
     return ans;
 }
 
+//main
 int main()
 {
     string s = "aab";
