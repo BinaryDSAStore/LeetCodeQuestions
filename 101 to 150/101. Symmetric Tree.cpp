@@ -11,15 +11,17 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-bool foo(TreeNode *p, TreeNode *q)
+bool SymmTraverse(TreeNode *root1, TreeNode *root2)
 {
-    if (!p || !q)
-        return p == q;
+    if (root1 == NULL && root2 == NULL)
+        return true;
 
-    return p->val == q->val && foo(p->left, q->right) && foo(p->right, q->left);
+    if (root1 and root2 and root1->val == root2->val)
+        return SymmTraverse(root1->left, root2->right) and SymmTraverse(root1->right, root2->left);
+
+    return false;
 }
-
 bool isSymmetric(TreeNode *root)
 {
-    return foo(root->left, root->right);
+    return SymmTraverse(root, root);
 }
